@@ -1,0 +1,26 @@
+:root{
+    --header-color: rgb(109, 136, 245);
+}
+
+body{
+    background-color: var(--header-color);
+}
+
+/* navbar */
+header{
+    background-color:blue;
+}
+.hed{
+    color: blue;
+}
+.navbar-nav .nav-item{
+    color:white !important;
+    font-size: 1.5rem;
+}
+.navbar-brand{
+    color:white !important;
+    font-size: 1.7rem;
+}
+
+/* QA */
+

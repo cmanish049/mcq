@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('mcq.home');
+});
+Route::get('/about', function () {
+    return view('mcq.about');
+});
+Route::get('/features', function () {
+    return view('mcq.features');
 });
