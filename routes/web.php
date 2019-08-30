@@ -20,3 +20,6 @@ Route::get('/about', function () {
 Route::get('/features', function () {
     return view('mcq.features');
 });
+
+
+Route::resource('questions','QuestionController');

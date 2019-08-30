@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreQuestion;
+use App\Question;
 
 class QuestionController extends Controller
 {
@@ -14,6 +16,7 @@ class QuestionController extends Controller
     public function index()
     {
         //
+        return view('questions.index');
     }
 
     /**
@@ -23,7 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions.create');
     }
 
     /**
@@ -32,9 +35,11 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreQuestion $request)
+    {   
+        $validated = $request->validated();
+        Question::create($validated);
+        return view('questions.index');
     }
 
     /**
@@ -56,7 +61,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('questions.edit');
     }
 
     /**
