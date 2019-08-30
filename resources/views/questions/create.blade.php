@@ -7,6 +7,7 @@
           <label for="Question">Enter your Question</label>
           <input type="text" name="question" class="form-control" id="formGroupExampleInput" placeholder="enter your question">
         </div>
+        @include('partials.errors')
         <button type="submit">Save Question</button>
       </form>
 @endsection

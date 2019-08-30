@@ -23,4 +23,6 @@ header{
 }
 
 /* QA */
-
+.question{
+    text-decoration: none;
+}
