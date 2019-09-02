@@ -5,11 +5,11 @@
     @foreach ($questions as $question)
     <li >
         <a href="/questions/{{$question->id}}">
-            <h1>Q{{$question->id}}. {{$question->question}}</h1>
+            <h1 style="color:white">Q{{$question->id}}. {{$question->question}}</h1>
         </a>
     </li>
     @endforeach
 </ul>
     
-    <a href="questions/create">Add question</a>
+    <a style="color:white" href="questions/create">Add question</a>
 @endsection

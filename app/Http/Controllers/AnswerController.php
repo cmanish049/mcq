@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreQuestion;
-use App\Http\Requests\UpdateQuestion;
-use App\Question;
 
-class QuestionController extends Controller
+class AnswerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
-       
-        return view('questions.index',compact('questions'));
+        //
     }
 
     /**
@@ -28,7 +23,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('questions.create');
+        //
     }
 
     /**
@@ -37,11 +32,9 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreQuestion $request)
-    {   
-        $validated = $request->validated();
-        Question::create($validated);
-        return redirect()->route('questions.index');
+    public function store(Request $request)
+    {
+        //
     }
 
     /**
@@ -50,10 +43,9 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Question $question)
-    {   
-        //$question = Question::findOrFail($id);
-        return view('questions.show',compact('question'));
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -62,10 +54,9 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question)
+    public function edit($id)
     {
-        //$question = Question::findOrFail($id);
-        return view('questions.edit',compact('question'));
+        //
     }
 
     /**
@@ -75,11 +66,9 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateQuestion $request, Question $question)
+    public function update(Request $request, $id)
     {
-        $validated = $request->validated();
-        update($validated);
-        return redirect()->route('questions.show',compact('question'));
+        //
     }
 
     /**
@@ -88,9 +77,8 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy($id)
     {
-        $question->delete();
-        return redirect('/questions');
+        //
     }
 }

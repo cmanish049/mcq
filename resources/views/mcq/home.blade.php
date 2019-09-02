@@ -95,4 +95,7 @@
                 
             </div>
         </div>
+        <div>
+            <a style="color:white; font-size:2rem" href="{{route('questions.index')}}">view questions</a>
+        </div>
 @endsection
