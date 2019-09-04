@@ -39,22 +39,15 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestion $request)
     {
-        // dd($request->all());
-        $answers = $request->answer;
-        // dd($answers);
-        $correctAnswer= (int)$request->correct_answer;
-
-
         $validated = $request->validated();
+
+        $answers = $request->answer;
+        $correctAnswer = (int)$request->correct_answer;
+        $finalAnswers = $this->manageAnswers($answers, $correctAnswer);
+
         $question = Question::create(['question' => $request->question]);
-        $ans=[];
-        foreach($answers as $index => $answer) {
-            if ($index == $correctAnswer)
-            $ans[] = ['question_id'=> $question->id, 'answer' => $answer, 'correct_answer' => 1];
-            else
-            $ans[] = ['question_id'=> $question->id, 'answer' => $answer, 'correct_answer' => 0];
-        }
-        \App\Answer::insert($ans);
+
+        $question->answers()->createMany($finalAnswers);
         return redirect()->route('questions.index');
     }
 
@@ -106,5 +99,16 @@ class QuestionController extends Controller
     {
         $question->delete();
         return redirect('/questions');
+    }
+
+    public function manageAnswers($answers, $correctAnswer)
+    {
+        $ans=[];
+        foreach($answers as $index => $answer) {
+            array_push($ans, ['answer' => $answer, 'correct_answer' => 0]);
+        }
+        $ans[$correctAnswer-1]['correct_answer'] = 1;
+
+        return $ans;
     }
 }
