@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('mcq.home');
+    return view('welcome');
 });
 Route::get('/about', function () {
     return view('mcq.about');
@@ -23,3 +23,7 @@ Route::get('/features', function () {
 
 
 Route::resource('questions','QuestionController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
