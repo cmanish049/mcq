@@ -39,8 +39,19 @@ class QuestionController extends Controller
      */
     public function store(StoreQuestion $request)
     {   
+        // dd($request->all());
+        $answers = $request->answer;
+        // dd($answers);
+        $correctAnswer= (int)$request->correct_answer;
+        $ans=[];
+        foreach($answers as $index => $answer) {
+            array_push($ans, ['answer' => $answer]);
+        }
+        $ans[$correctAnswer-1]['correct_answer'] = 1;
+        // dd($ans);
         $validated = $request->validated();
-        Question::create($validated);
+        $question = Question::create(['question' => $request->question]);
+        $question->answers()->create($ans);
         return redirect()->route('questions.index');
     }
 
@@ -78,7 +89,7 @@ class QuestionController extends Controller
     public function update(UpdateQuestion $request, Question $question)
     {
         $validated = $request->validated();
-        update($validated);
+        $project->update($validated);
         return redirect()->route('questions.show',compact('question'));
     }
 
