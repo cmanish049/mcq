@@ -17,7 +17,7 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::all();
-       
+
         return view('questions.index',compact('questions'));
     }
 
@@ -38,20 +38,23 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreQuestion $request)
-    {   
+    {
         // dd($request->all());
         $answers = $request->answer;
         // dd($answers);
         $correctAnswer= (int)$request->correct_answer;
-        $ans=[];
-        foreach($answers as $index => $answer) {
-            array_push($ans, ['answer' => $answer]);
-        }
-        $ans[$correctAnswer-1]['correct_answer'] = 1;
-        // dd($ans);
+
+
         $validated = $request->validated();
         $question = Question::create(['question' => $request->question]);
-        $question->answers()->create($ans);
+        $ans=[];
+        foreach($answers as $index => $answer) {
+            if ($index == $correctAnswer)
+            $ans[] = ['question_id'=> $question->id, 'answer' => $answer, 'correct_answer' => 1];
+            else
+            $ans[] = ['question_id'=> $question->id, 'answer' => $answer, 'correct_answer' => 0];
+        }
+        \App\Answer::insert($ans);
         return redirect()->route('questions.index');
     }
 
@@ -62,7 +65,7 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Question $question)
-    {   
+    {
         //$question = Question::findOrFail($id);
         return view('questions.show',compact('question'));
     }
