@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/1eb3548359.js"></script>
     {{-- <script href="/js/app.js"></script> --}}
     <title>Document</title>
 </head>

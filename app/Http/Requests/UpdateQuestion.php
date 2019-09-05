@@ -3,9 +3,12 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Question;
 class UpdateQuestion extends FormRequest
 {
+    public function __construct(Question $question) {
+        $this->question = $question;
+    }
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,7 +27,7 @@ class UpdateQuestion extends FormRequest
     public function rules()
     {
         return [
-            'question' => 'required|unique:questions|min:10'
+            'question' => 'required|min:10'
         ];
     }
 }

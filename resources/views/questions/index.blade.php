@@ -3,11 +3,17 @@
 @section('content')
 <ul>
     @foreach ($questions as $question)
-    <li >
-        <a href="/questions/{{$question->id}}">
-            <h1 style="color:white">Q{{$question->id}}. {{$question->question}}</h1>
-        </a>
-    </li>
+    
+    <div class="card my-4">
+        <li>
+            <a href="/questions/{{$question->id}}">
+            <div class="card-header">
+                <h1>Q{{$question->id}}. {{$question->question}}</h1>
+            </div>
+            </a>
+        </li>
+    </div>
+    
     @endforeach
 </ul>
     

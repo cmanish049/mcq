@@ -5,9 +5,16 @@
         @csrf
         @method('PATCH')
         <div class="form-group">
-          <label for="Question">Enter your Question</label>
-          <textarea type="text" name="question" class="form-control" id="formGroupExampleInput">{{$question->question}}</textarea>
+          <label for="Question">{{$question->question}}</label>
+          <textarea type="text" name="question" class="form-control" id="formGroupExampleInput" required>{{$question->question}}</textarea>
         </div>
+        @foreach ($question->answers as $index=>$answer)
+              <div>
+                  <input type="radio" name="correct_answer" value="{{++$index}}" {{ $answer->correct_answer ? 'checked' : '' }}>
+                  <input type="text" name="answer[]" value="{{$answer->answer}}" required>
+              </div>   
+        @endforeach
+        
         @include('partials.errors')
         <button type="submit">Update Question</button>
     </form>

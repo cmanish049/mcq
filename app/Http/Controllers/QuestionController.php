@@ -85,7 +85,12 @@ class QuestionController extends Controller
     public function update(UpdateQuestion $request, Question $question)
     {
         $validated = $request->validated();
-        $project->update($validated);
+        $answers = $request->answer;
+        $correctAnswer = (int)$request->correct_answer;
+        $finalAnswers = $this->manageAnswers($answers, $correctAnswer);
+        $question->update($validated);
+        $question->answers()->delete();
+        $question->answers()->createMany($finalAnswers);
         return redirect()->route('questions.show',compact('question'));
     }
 
@@ -97,6 +102,7 @@ class QuestionController extends Controller
      */
     public function destroy(Question $question)
     {
+        $question->answers()->delete();
         $question->delete();
         return redirect('/questions');
     }
