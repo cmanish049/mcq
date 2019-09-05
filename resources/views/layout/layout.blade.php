@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://kit.fontawesome.com/1eb3548359.js"></script>
     {{-- <script href="/js/app.js"></script> --}}
-    <title>Document</title>
+    <title>MCQ</title>
 </head>
 <body>
     @include('partials/header')

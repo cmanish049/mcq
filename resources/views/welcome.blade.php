@@ -93,6 +93,7 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                     <a href="/questions">Questions</a>
+                    <a href="{{route('category')}}">Category</a>
                 </div>
             </div>
         </div>

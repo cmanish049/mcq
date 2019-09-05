@@ -21,8 +21,8 @@ Route::get('/features', function () {
     return view('mcq.features');
 });
 
-
 Route::resource('questions','QuestionController');
+Route::resource('category','CategoryController');
 
 Auth::routes();
 

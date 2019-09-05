@@ -10,7 +10,7 @@
         </div>
         @foreach ($question->answers as $index=>$answer)
               <div>
-                  <input type="radio" name="correct_answer" value="{{++$index}}" {{ $answer->correct_answer ? 'checked' : '' }}>
+                  <input type="radio" name="correct_answer" value="{{++$index}}" {{ $answer->correct_answer ? 'checked' : '' }} required>
                   <input type="text" name="answer[]" value="{{$answer->answer}}" required>
               </div>   
         @endforeach
