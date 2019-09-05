@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreQuestion;
 use App\Http\Requests\UpdateQuestion;
 use App\Question;
+use App\Category;
 
 class QuestionController extends Controller
 {
@@ -26,9 +27,10 @@ class QuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('questions.create');
+    public function create(Category $category)
+    {   
+        $categories = Category::all();
+        return view('questions.create',compact('categories'));
     }
 
     /**
@@ -40,12 +42,14 @@ class QuestionController extends Controller
     public function store(StoreQuestion $request)
     {
         $validated = $request->validated();
-
         $answers = $request->answer;
         $correctAnswer = (int)$request->correct_answer;
         $finalAnswers = $this->manageAnswers($answers, $correctAnswer);
 
-        $question = Question::create(['question' => $request->question]);
+        $question = Question::create([
+            'question' => $request->question, 
+            'category_id' => $request->category_id
+        ]);
 
         $question->answers()->createMany($finalAnswers);
         return redirect()->route('questions.index');
@@ -69,10 +73,11 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question)
-    {
+    public function edit(Category $category, Question $question)
+    {   
+        $categories = Category::all();
         //$question = Question::findOrFail($id);
-        return view('questions.edit',compact('question'));
+        return view('questions.edit',compact('question','categories'));
     }
 
     /**

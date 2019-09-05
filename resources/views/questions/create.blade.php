@@ -8,11 +8,10 @@
           <input type="text" name="question" class="form-control" id="formGroupExampleInput" placeholder="enter your question" required>
             <div>
                 <span>Select a category</span>
-                <select>
-                    <option name="category" value="general">General</option>
-                    <option name="category" value="iq">IQ</option>
-                    <option name="category" value="geography">Geography</option>
-                    <option name="category" value="biology">Biology</option>
+                <select name="category_id" required>
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->category }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

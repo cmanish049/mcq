@@ -4,11 +4,11 @@
 <ul>
     @foreach ($questions as $question)
     
-    <div class="card my-4">
+    <div>
         <li>
             <a href="/questions/{{$question->id}}">
-            <div class="card-header">
-                <h1>Q{{$question->id}}. {{$question->question}}</h1>
+            <div>
+                <h1 style="color:black">Q{{$question->id}}. {{$question->question}}</h1>
             </div>
             </a>
         </li>

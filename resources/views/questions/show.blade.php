@@ -3,10 +3,10 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div>
                 <h1>Q{{$question->id}}. {{$question->question}}</h1>
                 @foreach ($question->answers as $index=>$answer)
-                    <div class="card-body">
+                    <div>
                         {{++$index.") ".$answer->answer}}
                         @if ($answer->correct_answer)
                             <i class="fas fa-check text-success"></i>
@@ -16,7 +16,7 @@
             </div>
                 <a style="color:white"href="{{route ('questions.edit',$question->id)}}">Edit Question</a>
                 <div>
-                    <a style="color:white"href="">Add Answers</a>
+                    <a style="color:white"href="{{ route('questions.create') }}">Add Questions</a>
             </div>
             <form action="{{ route('questions.destroy',$question->id)}}" method="POST">
                 @csrf

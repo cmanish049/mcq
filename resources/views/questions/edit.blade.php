@@ -8,6 +8,14 @@
           <label for="Question">{{$question->question}}</label>
           <textarea type="text" name="question" class="form-control" id="formGroupExampleInput" required>{{$question->question}}</textarea>
         </div>
+        <div>
+            <span>Select a category</span>
+            <select name="category_id" required>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->category }}</option>
+                @endforeach
+            </select>
+        </div>
         @foreach ($question->answers as $index=>$answer)
               <div>
                   <input type="radio" name="correct_answer" value="{{++$index}}" {{ $answer->correct_answer ? 'checked' : '' }} required>

@@ -27,7 +27,8 @@ class UpdateQuestion extends FormRequest
     public function rules()
     {
         return [
-            'question' => 'required|min:10'
+            'question' => 'required|min:10',
+            'category_id' => 'required'
         ];
     }
 }

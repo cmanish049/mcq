@@ -25,6 +25,8 @@ class StoreQuestion extends FormRequest
     {
         return [
             'question'  => 'required|unique:questions|min:10',
+            'category_id' => 'required'
+
         ];
     }
 }
