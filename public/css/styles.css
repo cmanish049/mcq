@@ -1,0 +1,76 @@
+:root {
+  --header-color: rgb(109, 136, 245);
+  --header-color-white: rgb(255, 255, 255);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--header-color-white);
+}
+
+ul,
+li,
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/* navbar */
+
+header {
+  background-color: blue;
+  width: 100%;
+}
+
+.hed {
+  color: blue;
+}
+
+.navbar-nav .nav-item {
+  color: white !important;
+  font-size: 1.5rem;
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 1.7rem;
+}
+
+/* QA */
+
+.question {
+  text-decoration: none;
+}
+
+.question-index {
+  margin-top: 90px;
+  margin: 0 auto 0 auto;
+}
+
+.question-index li {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgba(58, 52, 52, 0.8);
+  font-size: 2rem;
+  border-radius: 2px;
+  box-shadow: 5px 5px 6px rgba(58, 52, 52, 0.8);
+}
+
+.question-index li a {
+  text-decoration: none;
+  color: white;
+}
+
+.question-index li a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.question-index li a p {
+  color: white;
+}
+

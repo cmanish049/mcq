@@ -1,14 +1,13 @@
 @extends('layout.layout')
 
 @section('content')
-<ul>
+<ul class="question-index">
     @foreach ($questions as $question)
-    
     <div>
         <li>
             <a href="/questions/{{$question->id}}">
             <div>
-                <h1 style="color:black">Q{{$question->id}}. {{$question->question}}</h1>
+                <p>Q{{$question->id}}. {{$question->question}}</p>
             </div>
             </a>
         </li>
