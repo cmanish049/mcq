@@ -25,7 +25,6 @@ class UpdateCategories extends FormRequest
     {
         return [
             'category' => 'required',
-            'category_id' => 'required'
         ];
     }
 }

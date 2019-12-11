@@ -49355,7 +49355,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nError: ENOENT: no such file or directory, open 'C:\\xampp\\htdocs\\mcq\\resources\\css\\style.css'\n    at runLoaders (C:\\xampp\\htdocs\\mcq\\node_modules\\webpack\\lib\\NormalModule.js:313:20)\n    at C:\\xampp\\htdocs\\mcq\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\xampp\\htdocs\\mcq\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19\n    at process.nextTick (C:\\xampp\\htdocs\\mcq\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:73:15)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -49366,8 +49366,8 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\mcq\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\mcq\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Development\htdocs\mcq\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Development\htdocs\mcq\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

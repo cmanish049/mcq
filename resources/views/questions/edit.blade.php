@@ -12,7 +12,9 @@
             <span>Select a category</span>
             <select name="category_id" required>
                 @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->category }}</option>
+                  
+                  <option value="{{ $category->id }}" {{ ($category->id == $question->category_id) ? 'selected' : ''}}>{{ $category->category }}</option>
+                  
                 @endforeach
             </select>
         </div>
